@@ -1,3 +1,5 @@
+![RestPX Banner](assets/restpx.png)
+
 # RestPX - Elementor Add-on
 
 [![Version](https://img.shields.io/badge/version-1.8.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
