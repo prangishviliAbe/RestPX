@@ -93,7 +93,32 @@ function register_rest_api_posts_widget($widgets_manager) {
                     'default' => 'en',
                     'options' => [
                         'en' => __('English', 'rest-api-posts'),
-                        'ka-ge' => __('Georgian', 'rest-api-posts'),
+                        'ka' => __('Georgian', 'rest-api-posts'),
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'grid',
+                [
+                    'label' => __('Grid Columns', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::NUMBER,
+                    'default' => 3,
+                    'min' => 1,
+                    'max' => 4,
+                ]
+            );
+
+            $this->add_control(
+                'style',
+                [
+                    'label' => __('Card Style', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::SELECT,
+                    'default' => 'default',
+                    'options' => [
+                        'default' => __('Default', 'rest-api-posts'),
+                        'minimal' => __('Minimal', 'rest-api-posts'),
+                        'overlay' => __('Overlay', 'rest-api-posts'),
                     ],
                 ]
             );
@@ -119,7 +144,7 @@ function register_rest_api_posts_widget($widgets_manager) {
             }
 
             // Use the shortcode function to fetch posts and output them as cards
-            echo do_shortcode('[rest_api_posts url="' . esc_url($url) . '" count="' . intval($count) . '" lang="' . esc_attr($lang) . '"]');
+            echo do_shortcode('[rest_api_posts url="' . esc_url($url) . '" count="' . intval($count) . '" lang="' . esc_attr($lang) . '" grid="' . intval($settings['grid']) . '" style="' . esc_attr($settings['style']) . '"]');
         }
     }
 

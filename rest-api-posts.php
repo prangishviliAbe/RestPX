@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RestPX
  * Description: Seamlessly fetch and display posts from external WordPress sites via REST API. Features smart URL parsing for automatic Category and Language (Polylang) detection, fully responsive cards, and a dedicated Elementor widget.
- * Version: 1.3
+ * Version: 1.5
  * Author: Abe Prangishvili
  */
 
@@ -19,3 +19,14 @@ require_once REST_API_POSTS_PLUGIN_PATH . 'includes/rest-api-posts-shortcode.php
 
 // Include the Elementor widget functionality
 require_once REST_API_POSTS_PLUGIN_PATH . 'includes/rest-api-posts-widget.php';
+
+// Enqueue styles
+function rest_api_posts_enqueue_styles() {
+    wp_enqueue_style(
+        'rest-api-posts-style', 
+        REST_API_POSTS_PLUGIN_URL . 'assets/css/rest-api-posts.css', 
+        [], 
+        '1.5.0'
+    );
+}
+add_action('wp_enqueue_scripts', 'rest_api_posts_enqueue_styles');

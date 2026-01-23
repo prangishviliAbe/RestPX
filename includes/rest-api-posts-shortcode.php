@@ -12,6 +12,8 @@ function get_posts_from_external_site($atts) {
         'url' => '',    // External site URL for REST API
         'count' => 12,  // Total number of posts to display
         'lang' => 'en', // Language filter (default: English)
+        'grid' => 3,    // Number of columns (1-4)
+        'style' => 'default', // Card style: default, minimal, overlay
     ], $atts, 'rest_api_posts');
 
     if (empty($atts['url'])) {
@@ -121,7 +123,10 @@ function get_posts_from_external_site($atts) {
     }
 
     // Generate output
-    $output = '<div class="rest-api-posts-container">';
+    $grid_class = 'rap-grid-' . intval($atts['grid']);
+    $style_class = 'rap-style-' . esc_attr($atts['style']);
+    
+    $output = '<div class="rest-api-posts-container ' . $grid_class . ' ' . $style_class . '">';
     $posts_per_page = 6; // Number of posts per page
     $total_posts = count($posts);
     $total_pages = ceil($total_posts / $posts_per_page);

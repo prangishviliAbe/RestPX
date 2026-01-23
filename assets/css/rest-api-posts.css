@@ -1,0 +1,195 @@
+/* Main Container Grid */
+.rest-api-posts-page {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Grid Columns */
+.rap-grid-1 .rest-api-posts-page {
+    grid-template-columns: 1fr;
+}
+
+.rap-grid-2 .rest-api-posts-page {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.rap-grid-3 .rest-api-posts-page {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.rap-grid-4 .rest-api-posts-page {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .rap-grid-4 .rest-api-posts-page,
+    .rap-grid-3 .rest-api-posts-page {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .rest-api-posts-page {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Shared Card Base */
+.rest-api-post-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.rest-api-post-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rest-api-post-image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.rest-api-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.rest-api-post-card:hover .rest-api-post-image img {
+    transform: scale(1.05);
+}
+
+.rest-api-post-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.rest-api-post-date {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.rest-api-post-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* --- Style: Default --- */
+.rap-style-default .rest-api-post-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.rap-style-default .rest-api-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+}
+
+.rap-style-default .rest-api-post-image {
+    height: 200px;
+}
+
+/* --- Style: Minimal --- */
+.rap-style-minimal .rest-api-post-card {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.rap-style-minimal .rest-api-post-image {
+    height: 180px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.rap-style-minimal .rest-api-post-content {
+    padding: 15px;
+}
+
+.rap-style-minimal .rest-api-post-card:hover {
+    border-color: #bbb;
+}
+
+/* --- Style: Overlay --- */
+.rap-style-overlay .rest-api-post-card {
+    border-radius: 8px;
+    color: #fff;
+}
+
+.rap-style-overlay .rest-api-post-card a {
+    display: block;
+    height: 300px; /* Fixed height for overlay style */
+    position: relative;
+}
+
+.rap-style-overlay .rest-api-post-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.rap-style-overlay .rest-api-post-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+
+.rap-style-overlay .rest-api-post-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rap-style-overlay .rest-api-post-date {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rap-style-overlay .rest-api-post-card h3 {
+    color: #fff;
+    font-size: 1.25em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Navigation Buttons */
+.rest-api-posts-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rest-api-prev, .rest-api-next {
+    /* Basic styling for nav buttons if they were just empty elements in PHP, 
+       adding some size so they are visible if they use icons */
+    padding: 10px 20px;
+    cursor: pointer;
+}
