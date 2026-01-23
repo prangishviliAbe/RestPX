@@ -1,33 +1,95 @@
 # RestPX - Elementor Add-on
 
-**RestPX** is an Elementor add-on that allows you to seamlessly fetch and display posts from external WordPress sites via the REST API.
+[![Version](https://img.shields.io/badge/version-1.8.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
+[![WordPress](https://img.shields.io/badge/wordpress-5.0+-blue.svg)](https://wordpress.org/)
+[![Elementor](https://img.shields.io/badge/elementor-3.0+-orange.svg)](https://elementor.com/)
+
+**RestPX** is a powerful WordPress plugin and Elementor add-on that allows you to seamlessly fetch and display posts from external WordPress sites via the REST API. Perfect for aggregating content from multiple sites, creating news portals, or displaying related posts.
 
 ## Features
 
--   **Smart URL Parsing**: Automatically detects:
-    -   **Language**: Supports Polylang prefixes (e.g., `/en/`, `/ka/`).
-    -   **Categories**: Automatically filters posts when a Category URL is provided (e.g., `/category/news/`).
--   **Elementor Integration**: Dedicated widget with customization options.
--   **Responsive Design**: Beautiful, responsive post cards with featured images.
--   **Performance**: Caches API responses to reduce load times.
+- **Smart URL Parsing**: Automatically detects and handles:
+  - **Language Detection**: Supports Polylang prefixes (e.g., `/en/`, `/ka/`) for multilingual sites.
+  - **Category Filtering**: Automatically filters posts when a Category URL is provided (e.g., `/category/news/`).
+- **Elementor Integration**: Dedicated widget with extensive customization options.
+- **Responsive Design**: Beautiful, fully responsive post cards with featured images.
+- **Performance Optimized**: Caches API responses to reduce load times and server requests.
+- **Flexible Templates**: Multiple card layouts (default, minimal, overlay).
+- **Shortcode Support**: Use via shortcode for non-Elementor pages.
+
+## Requirements
+
+- WordPress 5.0 or higher
+- Elementor 3.0 or higher
+- PHP 7.4 or higher
 
 ## Installation
 
-1.  Upload the plugin files to the `/wp-content/plugins/rest-api-posts` directory, or install the plugin through the WordPress plugins screen.
+### Method 1: WordPress Admin
+
+1.  Download the plugin ZIP from [GitHub Releases](https://github.com/prangishviliAbe/RestPX/releases).
+2.  Go to WordPress Admin > Plugins > Add New > Upload Plugin.
+3.  Upload the ZIP file and activate the plugin.
+
+### Method 2: Manual Upload
+
+1.  Upload the plugin files to the `/wp-content/plugins/rest-api-posts` directory.
 2.  Activate the plugin through the 'Plugins' screen in WordPress.
-3.  Use the **RestPX** widget in Elementor.
 
 ## Usage
 
-1.  Drag the **RestPX** widget to your page.
-2.  **API URL**: Enter the URL of the external WordPress site.
-    -   *Example*: `https://news.iliauni.edu.ge/`
-    -   *Specific Category*: `https://news.iliauni.edu.ge/category/office-of-development/`
-    -   *Specific Language*: `https://news.iliauni.edu.ge/en/`
-3.  **Count**: Set the number of posts to display.
-4.  **Language**: (Optional) Javascript language fallback if not present in URL.
+### Elementor Widget
+
+1.  Edit your page with Elementor.
+2.  Drag the **RestPX** widget to your page.
+3.  Configure the settings:
+    - **API URL**: Enter the URL of the external WordPress site.
+      - _Example_: `https://news.iliauni.edu.ge/`
+      - _Specific Category_: `https://news.iliauni.edu.ge/category/office-of-development/`
+      - _Specific Language_: `https://news.iliauni.edu.ge/en/`
+    - **Posts Count**: Set the number of posts to display (1-20).
+    - **Language**: (Optional) JavaScript language fallback if not present in URL.
+    - **Card Template**: Choose from Default, Minimal, or Overlay styles.
+
+### Shortcode
+
+Use the shortcode in any post or page:
+
+```
+[restpx api_url="https://example.com" count="5" language="en"]
+```
+
+## Changelog
+
+### Version 1.8.0
+
+- Enhanced performance with improved caching
+- Added new overlay card template
+- Better error handling for API requests
+- Updated Elementor compatibility
+
+### Version 1.7
+
+- Initial release with basic functionality
+- Smart URL parsing for categories and languages
+- Elementor widget integration
+- Responsive card designs
+
+## Support
+
+For support, bug reports, or feature requests, please [open an issue](https://github.com/prangishviliAbe/RestPX/issues) on GitHub.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This plugin is licensed under the GPL v2 or later.
 
 ## Author
 
 **Abe Prangishvili**
-Version: 1.5
+
+- Website: [Your Website]
+- GitHub: [@prangishviliAbe](https://github.com/prangishviliAbe)
