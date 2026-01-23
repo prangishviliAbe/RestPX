@@ -44,9 +44,9 @@
 2.  Drag the **RestPX** widget to your page.
 3.  Configure the settings:
     - **API URL**: Enter the URL of the external WordPress site.
-      - _Example_: `https://news.iliauni.edu.ge/`
-      - _Specific Category_: `https://news.iliauni.edu.ge/category/office-of-development/`
-      - _Specific Language_: `https://news.iliauni.edu.ge/en/`
+      - _Example_: `https://example.com/`
+      - _Specific Category_: `https://example.com/category/news/`
+      - _Specific Language_: `https://example.com/en/`
     - **Posts Count**: Set the number of posts to display (1-20).
     - **Language**: (Optional) JavaScript language fallback if not present in URL.
     - **Card Template**: Choose from Default, Minimal, or Overlay styles.
