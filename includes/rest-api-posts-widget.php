@@ -81,7 +81,7 @@ function register_rest_api_posts_widget($widgets_manager) {
                     'type' => \Elementor\Controls_Manager::NUMBER,
                     'default' => 5,
                     'min' => 1,
-                    'max' => 20,
+                    'max' => 400,
                 ]
             );
 

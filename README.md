@@ -49,7 +49,7 @@
       - _Example_: `https://example.com/`
       - _Specific Category_: `https://example.com/category/news/`
       - _Specific Language_: `https://example.com/en/`
-    - **Posts Count**: Set the number of posts to display (1-20).
+    - **Posts Count**: Set the number of posts to display (1-400).
     - **Language**: (Optional) JavaScript language fallback if not present in URL.
     - **Card Template**: Choose from Default, Minimal, or Overlay styles.
 

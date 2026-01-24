@@ -10,7 +10,7 @@ function get_posts_from_external_site($atts) {
     // Set default attributes
     $atts = shortcode_atts([
         'url' => '',    // External site URL for REST API
-        'count' => 12,  // Total number of posts to display
+        'count' => 12,  // Total number of posts to display (1-400)
         'lang' => 'en', // Language filter (default: English)
         'grid' => 3,    // Number of columns (1-4)
         'style' => 'default', // Card style: default, minimal, overlay
