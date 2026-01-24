@@ -2,7 +2,7 @@
 
 # RestPX - Elementor Add-on
 
-[![Version](https://img.shields.io/badge/version-1.8.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
+[![Version](https://img.shields.io/badge/version-1.9.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
 [![WordPress](https://img.shields.io/badge/wordpress-5.0+-blue.svg)](https://wordpress.org/)
 [![Elementor](https://img.shields.io/badge/elementor-3.0+-orange.svg)](https://elementor.com/)
 
@@ -63,7 +63,7 @@ Use the shortcode in any post or page:
 
 ## Changelog
 
-### Version 1.8.0
+### Version 1.9.0
 
 - Enhanced performance with improved caching
 - Added new overlay card template
@@ -93,5 +93,4 @@ This plugin is licensed under the GPL v2 or later.
 
 **Abe Prangishvili**
 
-- Website: [Your Website]
 - GitHub: [@prangishviliAbe](https://github.com/prangishviliAbe)

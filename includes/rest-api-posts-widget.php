@@ -30,7 +30,7 @@ function register_rest_api_posts_widget($widgets_manager) {
          * @return string Widget title.
          */
         public function get_title() {
-            return __('REST API Posts', 'rest-api-posts');
+            return __('RestPX', 'rest-api-posts');
         }
 
         /**
@@ -119,6 +119,180 @@ function register_rest_api_posts_widget($widgets_manager) {
                         'default' => __('Default', 'rest-api-posts'),
                         'minimal' => __('Minimal', 'rest-api-posts'),
                         'overlay' => __('Overlay', 'rest-api-posts'),
+                    ],
+                ]
+            );
+
+            $this->end_controls_section();
+
+            // --- Style Section: Card ---
+            $this->start_controls_section(
+                'style_section_card',
+                [
+                    'label' => __('Card Style', 'rest-api-posts'),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_control(
+                'card_background_color',
+                [
+                    'label' => __('Background Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card' => 'background-color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'style' => ['default', 'minimal'],
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'card_border_radius',
+                [
+                    'label' => __('Border Radius', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%'],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .rest-api-post-image' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}};',
+                    ],
+                ]
+            );
+            
+            $this->add_group_control(
+                \Elementor\Group_Control_Box_Shadow::get_type(),
+                [
+                    'name' => 'card_box_shadow',
+                    'label' => __('Box Shadow', 'rest-api-posts'),
+                    'selector' => '{{WRAPPER}} .rest-api-post-card',
+                    'condition' => [
+                        'style' => ['default'],
+                    ],
+                ]
+            );
+
+            $this->end_controls_section();
+
+            // --- Style Section: Typography ---
+            $this->start_controls_section(
+                'style_section_typography',
+                [
+                    'label' => __('Typography', 'rest-api-posts'),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_control(
+                'title_heading',
+                [
+                    'label' => __('Title', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+
+            $this->add_control(
+                'title_color',
+                [
+                    'label' => __('Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card h3' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
+                    'name' => 'title_typography',
+                    'selector' => '{{WRAPPER}} .rest-api-post-card h3',
+                ]
+            );
+
+            $this->add_control(
+                'date_heading',
+                [
+                    'label' => __('Date', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+
+            $this->add_control(
+                'date_color',
+                [
+                    'label' => __('Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-date' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
+                    'name' => 'date_typography',
+                    'selector' => '{{WRAPPER}} .rest-api-post-date',
+                ]
+            );
+
+            $this->end_controls_section();
+
+            // --- Style Section: Navigation ---
+            $this->start_controls_section(
+                'style_section_navigation',
+                [
+                    'label' => __('Navigation', 'rest-api-posts'),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_control(
+                'arrow_color',
+                [
+                    'label' => __('Arrow Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-prev, {{WRAPPER}} .rest-api-next' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .rest-api-prev::before, {{WRAPPER}} .rest-api-next::before' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'arrow_bg_color',
+                [
+                    'label' => __('Background Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-prev, {{WRAPPER}} .rest-api-next' => 'background-color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'arrow_bg_hover_color',
+                [
+                    'label' => __('Background Hover Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-prev:hover, {{WRAPPER}} .rest-api-next:hover' => 'background-color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'arrow_border_radius',
+                [
+                    'label' => __('Border Radius', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%'],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-prev, {{WRAPPER}} .rest-api-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );

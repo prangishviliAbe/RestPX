@@ -188,8 +188,28 @@
 }
 
 .rest-api-prev, .rest-api-next {
-    /* Basic styling for nav buttons if they were just empty elements in PHP, 
-       adding some size so they are visible if they use icons */
     padding: 10px 20px;
     cursor: pointer;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.rest-api-prev:hover, .rest-api-next:hover {
+    background: #e0e0e0;
+}
+
+.rest-api-prev:disabled, .rest-api-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.rest-api-prev::before {
+    content: '\2190'; /* Left Arrow */
+}
+
+.rest-api-next::before {
+    content: '\2192'; /* Right Arrow */
 }
