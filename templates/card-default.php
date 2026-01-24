@@ -6,6 +6,9 @@
         <div class="rest-api-post-content">
             <p class="rest-api-post-date"><?php echo $date; ?></p>
             <h3><?php echo $title; ?></h3>
+            <?php if (!empty($excerpt)): ?>
+                <p class="rest-api-post-excerpt"><?php echo esc_html($excerpt); ?></p>
+            <?php endif; ?>
         </div>
     </a>
 </div>

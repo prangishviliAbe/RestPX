@@ -34,7 +34,7 @@ class RestPX_Renderer {
             $page_posts = array_slice($posts, $start, $posts_per_page);
 
             foreach ($page_posts as $post) {
-                $output .= $this->load_template($atts['style'], $post);
+                $output .= $this->load_template($atts['style'], $post, $atts['show_excerpt']);
             }
 
             $output .= '</div>'; // .rest-api-posts-page
@@ -53,12 +53,13 @@ class RestPX_Renderer {
 
     /**
      * Load a specific template for a post card.
-     * 
+     *
      * @param string $style The style name (default, minimal, overlay).
      * @param array $post The post data.
+     * @param string $show_excerpt Whether to show excerpt.
      * @return string HTML for the single card.
      */
-    private function load_template($style, $post) {
+    private function load_template($style, $post, $show_excerpt = 'no') {
         $allowed_styles = ['default', 'minimal', 'overlay'];
         if (!in_array($style, $allowed_styles)) {
             $style = 'default';
@@ -78,6 +79,7 @@ class RestPX_Renderer {
             ? esc_url($post['_embedded']['wp:featuredmedia'][0]['source_url'])
             : 'https://via.placeholder.com/300';
         $date = date_i18n(get_option('date_format'), strtotime($post['date']));
+        $excerpt = ($show_excerpt === 'yes' && isset($post['excerpt']['rendered'])) ? wp_strip_all_tags($post['excerpt']['rendered']) : '';
 
         // Capture output
         ob_start();

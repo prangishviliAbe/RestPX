@@ -14,6 +14,7 @@ function get_posts_from_external_site($atts) {
         'lang' => 'en', // Language filter (default: English)
         'grid' => 3,    // Number of columns (1-4)
         'style' => 'default', // Card style: default, minimal, overlay
+        'show_excerpt' => 'no', // Show excerpt: yes/no
     ], $atts, 'rest_api_posts');
 
     if (empty($atts['url'])) {

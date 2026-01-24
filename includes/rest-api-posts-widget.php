@@ -123,6 +123,18 @@ function register_rest_api_posts_widget($widgets_manager) {
                 ]
             );
 
+            $this->add_control(
+                'show_excerpt',
+                [
+                    'label' => __('Show Excerpt', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::SWITCHER,
+                    'label_on' => __('Yes', 'rest-api-posts'),
+                    'label_off' => __('No', 'rest-api-posts'),
+                    'return_value' => 'yes',
+                    'default' => 'no',
+                ]
+            );
+
             $this->end_controls_section();
 
             // --- Style Section: Card ---
@@ -170,6 +182,105 @@ function register_rest_api_posts_widget($widgets_manager) {
                     'condition' => [
                         'style' => ['default'],
                     ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'card_padding',
+                [
+                    'label' => __('Padding', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', 'em', '%'],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'card_margin',
+                [
+                    'label' => __('Margin', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', 'em', '%'],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'card_hover_bg_color',
+                [
+                    'label' => __('Hover Background Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-card:hover' => 'background-color: {{VALUE}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Box_Shadow::get_type(),
+                [
+                    'name' => 'card_hover_box_shadow',
+                    'label' => __('Hover Box Shadow', 'rest-api-posts'),
+                    'selector' => '{{WRAPPER}} .rest-api-post-card:hover',
+                ]
+            );
+
+            $this->end_controls_section();
+
+            // --- Style Section: Image ---
+            $this->start_controls_section(
+                'style_section_image',
+                [
+                    'label' => __('Image', 'rest-api-posts'),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_responsive_control(
+                'image_height',
+                [
+                    'label' => __('Height', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::SLIDER,
+                    'size_units' => ['px', 'vh'],
+                    'range' => [
+                        'px' => [
+                            'min' => 100,
+                            'max' => 500,
+                            'step' => 5,
+                        ],
+                        'vh' => [
+                            'min' => 10,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-image img' => 'height: {{SIZE}}{{UNIT}}; object-fit: cover;',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'image_border_radius',
+                [
+                    'label' => __('Border Radius', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => ['px', '%'],
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Border::get_type(),
+                [
+                    'name' => 'image_border',
+                    'label' => __('Border', 'rest-api-posts'),
+                    'selector' => '{{WRAPPER}} .rest-api-post-image img',
                 ]
             );
 
@@ -240,6 +351,43 @@ function register_rest_api_posts_widget($widgets_manager) {
                 ]
             );
 
+            $this->add_control(
+                'excerpt_heading',
+                [
+                    'label' => __('Excerpt', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::HEADING,
+                    'separator' => 'before',
+                    'condition' => [
+                        'show_excerpt' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'excerpt_color',
+                [
+                    'label' => __('Color', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-post-excerpt' => 'color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'show_excerpt' => 'yes',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
+                    'name' => 'excerpt_typography',
+                    'selector' => '{{WRAPPER}} .rest-api-post-excerpt',
+                    'condition' => [
+                        'show_excerpt' => 'yes',
+                    ],
+                ]
+            );
+
             $this->end_controls_section();
 
             // --- Style Section: Navigation ---
@@ -297,6 +445,51 @@ function register_rest_api_posts_widget($widgets_manager) {
                 ]
             );
 
+            $this->add_control(
+                'custom_prev_arrow',
+                [
+                    'label' => __('Custom Previous Arrow', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::MEDIA,
+                    'media_type' => 'image',
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-prev::before' => 'content: url("{{URL}}");',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'custom_next_arrow',
+                [
+                    'label' => __('Custom Next Arrow', 'rest-api-posts'),
+                    'type' => \Elementor\Controls_Manager::MEDIA,
+                    'media_type' => 'image',
+                    'selectors' => [
+                        '{{WRAPPER}} .rest-api-next::before' => 'content: url("{{URL}}");',
+                    ],
+                ]
+            );
+
+            $this->end_controls_section();
+
+            // --- Style Section: Background ---
+            $this->start_controls_section(
+                'style_section_background',
+                [
+                    'label' => __('Background', 'rest-api-posts'),
+                    'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                ]
+            );
+
+            $this->add_group_control(
+                \Elementor\Group_Control_Background::get_type(),
+                [
+                    'name' => 'widget_background',
+                    'label' => __('Background', 'rest-api-posts'),
+                    'types' => ['classic', 'gradient'],
+                    'selector' => '{{WRAPPER}} .rest-api-posts-container',
+                ]
+            );
+
             $this->end_controls_section();
         }
 
@@ -318,7 +511,7 @@ function register_rest_api_posts_widget($widgets_manager) {
             }
 
             // Use the shortcode function to fetch posts and output them as cards
-            echo do_shortcode('[rest_api_posts url="' . esc_url($url) . '" count="' . intval($count) . '" lang="' . esc_attr($lang) . '" grid="' . intval($settings['grid']) . '" style="' . esc_attr($settings['style']) . '"]');
+            echo do_shortcode('[rest_api_posts url="' . esc_url($url) . '" count="' . intval($count) . '" lang="' . esc_attr($lang) . '" grid="' . intval($settings['grid']) . '" style="' . esc_attr($settings['style']) . '" show_excerpt="' . esc_attr($settings['show_excerpt']) . '"]');
         }
     }
 
