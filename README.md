@@ -2,7 +2,7 @@
 
 # RestPX - Elementor Add-on
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
 [![WordPress](https://img.shields.io/badge/wordpress-5.0+-blue.svg)](https://wordpress.org/)
 [![Elementor](https://img.shields.io/badge/elementor-3.0+-orange.svg)](https://elementor.com/)
 
@@ -62,6 +62,10 @@ Use the shortcode in any post or page:
 ```
 
 ## Changelog
+
+### Version 2.1.0
+
+- **Enhancement**: Increased maximum posts limit from 20 to 400 for better content aggregation capabilities
 
 ### Version 2.0.0
 
