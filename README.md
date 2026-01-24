@@ -2,7 +2,7 @@
 
 # RestPX - Elementor Add-on
 
-[![Version](https://img.shields.io/badge/version-1.9.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
 [![WordPress](https://img.shields.io/badge/wordpress-5.0+-blue.svg)](https://wordpress.org/)
 [![Elementor](https://img.shields.io/badge/elementor-3.0+-orange.svg)](https://elementor.com/)
 
@@ -62,6 +62,18 @@ Use the shortcode in any post or page:
 ```
 
 ## Changelog
+
+### Version 2.0.0
+
+- **Major Enhancement**: Added comprehensive styling controls to Elementor widget, matching other Elementor widgets
+- **New Features**:
+  - Advanced card styling (background colors, borders, shadows, spacing, hover effects)
+  - Image customization (height, border radius, borders)
+  - Enhanced typography controls for titles, dates, and excerpts
+  - Custom arrow uploads for navigation buttons
+  - Background options (colors, gradients, images) for the widget container
+  - Excerpt display toggle with full styling options
+- **UI Improvements**: Expanded style tabs with organized sections for better user experience
 
 ### Version 1.9.0
 
