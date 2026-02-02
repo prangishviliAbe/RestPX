@@ -31,6 +31,8 @@ class RestPX_API {
         // Detect Language
         if (isset($path_segments[0]) && preg_match('/^[a-z]{2}$/', $path_segments[0])) {
             $lang = $path_segments[0];
+            // If language is detected in path, append it to base_url to support key/wp-json style
+            $base_url .= '/' . $lang;
         }
 
         // Detect Category

@@ -2,7 +2,7 @@
 
 # RestPX - Elementor Add-on
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
+[![Version](https://img.shields.io/badge/version-1.9.1-blue.svg)](https://github.com/prangishviliAbe/RestPX/releases)
 [![WordPress](https://img.shields.io/badge/wordpress-5.0+-blue.svg)](https://wordpress.org/)
 [![Elementor](https://img.shields.io/badge/elementor-3.0+-orange.svg)](https://elementor.com/)
 
